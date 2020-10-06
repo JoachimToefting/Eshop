@@ -8,6 +8,8 @@ namespace DataLayer.Entities
 	{
 		public int ProductID { get; set; }
 		public string Name { get; set; }
-		public List<ProductType> ProductTypes { get; set; }
+		public int? BrandID { get; set; }
+		public Brand Brand { get; set; }
+		public ICollection<ProductTag> ProductTags { get; set; }
 	}
 }

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace DataLayer.Entities
 {
-	class Type
+	class Tag
 	{
-		public int TypeID { get; set; }
+		public int TagID { get; set; }
 		public string Name { get; set; }
-		public List<ProductType> ProductTypes { get; set; }
+		public ICollection<ProductTag> ProductTags { get; set; }
 	}
 }
