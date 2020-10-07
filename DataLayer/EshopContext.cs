@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataLayer
 {
-	class EshopContext : DbContext
+	public class EshopContext : DbContext
 	{
 		DbSet<Product> Products { get; set; }
 		DbSet<Brand> Brands { get; set; }
