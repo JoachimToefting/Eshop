@@ -10,7 +10,7 @@ namespace ServiceLayer.ProductService
 		public int ProductID { get; set; }
 		public string Name { get; set; }
 		public double Price { get; set; }
-		public Brand Brand { get; set; }
+		public string BrandName { get; set; }
 		public int NumberOfTags { get; set; }
 	}
 }

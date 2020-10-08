@@ -32,7 +32,7 @@ namespace ServiceLayer.ProductService.QueryObjects
 				case ProductFilterBy.ByPriceMin:
 					return products.Where(p => p.Price >= double.Parse(filtervalue));
 				case ProductFilterBy.ByBrand:
-					return products.Where(p => p.Brand.Name.Contains(filtervalue));
+					return products.Where(p => p.BrandName.Contains(filtervalue));
 				default:
 					throw new Exception("filter unhandled filtertype");
 			}
