@@ -30,17 +30,20 @@ namespace DataLayer
 				.HasKey(pt => new { pt.ProductID, pt.TypeID });
 
 #if DEBUG
+			modelBuilder.Entity<Brand>().HasData(
+				new Brand
+				{
+					BrandID = 1,
+					Name = "90° Company"
+				}
+				);
 			modelBuilder.Entity<Product>().HasData(
 				new Product
 				{
 					ProductID = 1,
 					Name = "SomeSquare",
 					Price = 8,
-					Brand = new Brand
-					{
-						BrandID = 1,
-						Name = "90° Company"
-					}
+					BrandID = 1
 				},
 				new Product
 				{
@@ -48,6 +51,12 @@ namespace DataLayer
 					Name = "Non Euclidean Pentagon",
 					Price = 5,
 					BrandID = 1
+				},
+				new Product
+				{
+					ProductID = 3,
+					Name = "None",
+					Price = -1
 				}
 				);
 #endif

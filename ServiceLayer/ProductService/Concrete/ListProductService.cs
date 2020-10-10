@@ -27,7 +27,8 @@ namespace ServiceLayer.ProductService.Concrete
 				;
 
 			options.SetupRestOfDto(productsQuery);
-			return productsQuery.Page(options.PageNum, options.PageSize);
+			//-1 for index offset
+			return productsQuery.Page(options.PageNum - 1, options.PageSize);
 		}
 	}
 }
