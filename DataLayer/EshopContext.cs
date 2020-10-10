@@ -18,10 +18,11 @@ namespace DataLayer
 		{
 			dbContextOptionsBuilder.UseSqlServer("Server = (localdb)\\MSSQLLocalDB; Database = EshopDB; Trusted_Connection = true")
 				.EnableSensitiveDataLogging(true)
-				.UseLoggerFactory(new ServiceCollection()
-					.AddLogging(builder => builder.AddConsole()
-						.AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Information))
-					.BuildServiceProvider().GetService<ILoggerFactory>()); ;
+				//.UseLoggerFactory(new ServiceCollection()
+				//	.AddLogging(builder => builder.AddConsole()
+				//		.AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Information))
+				//	.BuildServiceProvider().GetService<ILoggerFactory>())
+				;
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
