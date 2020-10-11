@@ -40,12 +40,13 @@ namespace UnitTest
 			}
 		}
 		[TestCleanup]
-		public async Task AddProductCleanUp()
+		public void AddProductCleanUp()
 		{
 			using (EshopContext context = new EshopContext())
 			{
 				var products = context.Products.Where(p => p.Name == "New Shape");
 				context.RemoveRange(products);
+				context.SaveChanges();
 			}
 		}
 	}
