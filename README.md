@@ -28,9 +28,7 @@ Der forventes at der bruges Visual Studio.
 
 Der skal installeres disse NuGet pakker til følgene projekter:
 - Datalayer
-```csharp
   - Microsoft.EntityFrameworkCore.SqlServer (3.1.8)
-```
   - Microsoft.EntityFrameworkCore.Tools (3.1.8)
   - Microsoft.EntityFrameworkCore.Logging (3.1.8)
   - Microsoft.EntityFrameworkCore.Logging.Console (3.1.8)
@@ -40,7 +38,7 @@ Der skal installeres disse NuGet pakker til følgene projekter:
   - Microsoft.EntityFrameworkCore (3.1.8)
   - Microsoft.EntityFrameworkCore.InMemory (3.1.8)
 
-## Krav til Software løsningen
+## Komponenter til Software løsningen
 
 - [x] Database der bliver håndterret af Entity Framework Core
 - [x] At der bliver fulgt Data Layer -> Service Layer -> Frontend arkitektur
@@ -63,3 +61,6 @@ Der skal installeres disse NuGet pakker til følgene projekter:
 -  [x] UnitTest
 -  [ ] Dokument database til Egenskaber på produkter
 -  [ ] Seeding med Json
+
+## ER diagram
+![EfDiagram](ERDiagram.PNG)
