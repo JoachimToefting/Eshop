@@ -19,12 +19,5 @@ namespace ServiceLayer.ProductService.QueryObjects
 				NumberOfTags = p.ProductTags.Count()
 			});
 		}
-		public static IQueryable<Product> MapProduct(this IQueryable<ProductListDto> products)
-		{
-			return products.Select(p => new Product
-			{
-
-			});
-		}
 	}
 }

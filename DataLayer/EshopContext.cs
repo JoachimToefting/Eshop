@@ -11,18 +11,31 @@ namespace DataLayer
 {
 	public class EshopContext : DbContext
 	{
+		public EshopContext()
+		{
+
+		}
+		public EshopContext(DbContextOptions<EshopContext> options) : base(options)
+		{
+
+		}
+
 		public DbSet<Product> Products { get; set; }
 		public DbSet<Brand> Brands { get; set; }
 		public DbSet<Tag> Tags { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
 		{
-			dbContextOptionsBuilder.UseSqlServer("Server = (localdb)\\MSSQLLocalDB; Database = EshopDB; Trusted_Connection = true")
-				.EnableSensitiveDataLogging(true)
-				//.UseLoggerFactory(new ServiceCollection()
-				//	.AddLogging(builder => builder.AddConsole()
-				//		.AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Information))
-				//	.BuildServiceProvider().GetService<ILoggerFactory>())
-				;
+			if (!dbContextOptionsBuilder.IsConfigured)
+			{
+				dbContextOptionsBuilder.UseSqlServer("Server = (localdb)\\MSSQLLocalDB; Database = EshopDB; Trusted_Connection = true");
+			}
+			dbContextOptionsBuilder
+			.EnableSensitiveDataLogging(true)
+			.UseLoggerFactory(new ServiceCollection()
+				.AddLogging(builder => builder.AddConsole()
+					.AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Information))
+				.BuildServiceProvider().GetService<ILoggerFactory>())
+			;
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

@@ -28,12 +28,17 @@ Der forventes at der bruges Visual Studio.
 
 Der skal installeres disse NuGet pakker til følgene projekter:
 - Datalayer
+```csharp
   - Microsoft.EntityFrameworkCore.SqlServer (3.1.8)
+```
   - Microsoft.EntityFrameworkCore.Tools (3.1.8)
   - Microsoft.EntityFrameworkCore.Logging (3.1.8)
   - Microsoft.EntityFrameworkCore.Logging.Console (3.1.8)
 - ConsoleApp
   - Microsoft.EntityFrameworkCore.Design (3.1.8)
+- UnitTest
+  - Microsoft.EntityFrameworkCore (3.1.8)
+  - Microsoft.EntityFrameworkCore.InMemory (3.1.8)
 
 ## Krav til Software løsningen
 
@@ -46,7 +51,7 @@ Der skal installeres disse NuGet pakker til følgene projekter:
    -  [X] Type
       -  [ ] CRUD
    -  [x] Product
-      -  [ ] CRUD
+      -  [x] CRUD
       -  [ ] Billeder
    -  [ ] User
       -  [ ] CRUD
@@ -55,6 +60,6 @@ Der skal installeres disse NuGet pakker til følgene projekter:
 -  [x] Filtrer
 -  [x] Sorter
 -  [x] Paging
--  [ ] UnitTest
+-  [x] UnitTest
 -  [ ] Dokument database til Egenskaber på produkter
 -  [ ] Seeding med Json

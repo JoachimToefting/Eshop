@@ -1,24 +1,12 @@
-﻿using ServiceLayer.ProductService.QueryObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ServiceLayer.ProductService
+namespace ServiceLayer.Generic
 {
-	public class FilterSortPageOptions
+	public class PagingOptions
 	{
-		#region Filter
-		public ProductFilterBy FilterBy { get; set; }
-		public string FilterValue { get; set; }
-		#endregion
-
-		#region Ordering
-		public OrderByOptions OrderBy { get; set; }
-		#endregion
-
-		#region Paging
-		//Default size per page
 		public const int DefaultPageSize = 10;
 		//Page number
 		public int PageNum { get; set; }
@@ -38,6 +26,5 @@ namespace ServiceLayer.ProductService
 			//PageNum -> max:NumPages min:1 
 			PageNum = Math.Min(Math.Max(1, PageNum), NumPages);
 		}
-		#endregion
 	}
 }

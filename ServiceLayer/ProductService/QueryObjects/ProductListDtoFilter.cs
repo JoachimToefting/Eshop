@@ -15,9 +15,9 @@ namespace ServiceLayer.ProductService.QueryObjects
 	}
 	public static class ProductListDtoFilter
 	{
-		public static IQueryable<ProductListDto> FilterProductBy(this IQueryable<ProductListDto> products,ProductFilterBy filterBy, string filtervalue)
+		public static IQueryable<ProductListDto> FilterProductBy(this IQueryable<ProductListDto> products,ProductFilterBy filterBy, string filterValue)
 		{
-			if (string.IsNullOrEmpty(filtervalue))
+			if (string.IsNullOrEmpty(filterValue))
 			{
 				return products;
 			}
@@ -26,13 +26,13 @@ namespace ServiceLayer.ProductService.QueryObjects
 				case ProductFilterBy.NoFilter:
 					return products;
 				case ProductFilterBy.ByName:
-					return products.Where(p => p.Name.Contains(filtervalue));
+					return products.Where(p => p.Name.Contains(filterValue));
 				case ProductFilterBy.ByPriceMax:
-					return products.Where(p => p.Price <= double.Parse(filtervalue));
+					return products.Where(p => p.Price <= double.Parse(filterValue));
 				case ProductFilterBy.ByPriceMin:
-					return products.Where(p => p.Price >= double.Parse(filtervalue));
+					return products.Where(p => p.Price >= double.Parse(filterValue));
 				case ProductFilterBy.ByBrand:
-					return products.Where(p => p.BrandName.Contains(filtervalue));
+					return products.Where(p => p.BrandName.Contains(filterValue));
 				default:
 					throw new Exception("filter unhandled filtertype");
 			}

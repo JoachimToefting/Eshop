@@ -37,7 +37,7 @@ namespace ConsoleApp
 			using (EshopContext context = new EshopContext())
 			{
 				var productService = new ListProductService(context);
-				products = await productService.FilterSortPage(new FilterSortPageOptions
+				products = await productService.FilterSortPage(new ProductFilterSortPageOptions
 				{
 
 				}).ToListAsync();
@@ -54,27 +54,30 @@ namespace ConsoleApp
 			{
 				using (EshopContext context = new EshopContext())
 				{
-					Product oldProduct = context.Products.Find(product.ProductID);
-					if (oldProduct == null)
+					ListProductService service = new ListProductService(context);
+					Product result;
+					if (product.ProductID == 0)
 					{
-						oldProduct = new Product();
+						result = await service.FindById(product.ProductID);
 					}
-					oldProduct.Name = product.Name;
-					oldProduct.Price = product.Price;
-					if (!String.IsNullOrEmpty(product.BrandName))
+
+					if (product != null)
 					{
-						Brand brand = await context.Brands.SingleOrDefaultAsync(b => b.Name == product.BrandName);
-						if (brand == null)
+						await service.Add(new Product
 						{
-							context.Brands.Add(new Brand
-							{
-								Name = product.BrandName
-							});
-						}
-						oldProduct.Brand = brand;
+							Name = product.Name,
+							Price = product.Price,
+						});
 					}
-					context.Attach(oldProduct);
-					await context.SaveChangesAsync();
+					else
+					{
+						await service.Update(new Product
+						{
+							ProductID = product.ProductID,
+							Name = product.Name,
+							Price = product.Price
+						});
+					}
 				}
 			}
 		}
@@ -83,7 +86,7 @@ namespace ConsoleApp
 			using (EshopContext context = new EshopContext())
 			{
 				var productService = new ListProductService(context);
-				var products = await productService.FilterSortPage(new FilterSortPageOptions
+				var products = await productService.FilterSortPage(new ProductFilterSortPageOptions
 				{
 					FilterBy = ServiceLayer.ProductService.QueryObjects.ProductFilterBy.ByName,
 					FilterValue = searchName
