@@ -46,7 +46,7 @@ Der skal installeres disse NuGet pakker til følgene projekter:
    -  [x] Brand
       -  [ ] CRUD
       -  [ ] Billeder
-   -  [X] Type
+   -  [X] Tag
       -  [ ] CRUD
    -  [x] Product
       -  [x] CRUD
