@@ -10,7 +10,7 @@ using System.Text;
 
 namespace ServiceLayer.BrandService.Concrete
 {
-	public class ListBrandService
+	public class ListBrandService : IListBrandService
 	{
 		private readonly EshopContext _context;
 		public ListBrandService(EshopContext context)
@@ -27,13 +27,14 @@ namespace ServiceLayer.BrandService.Concrete
 				;
 			options.SetupRestOfDto(brandsQuery);
 			// -1 for index offset
-			return brandsQuery.Page(options.PageNum -1, options.PageSize);
+			return brandsQuery.Page(options.PageNum - 1, options.PageSize);
 		}
 		public void Add(Brand brand)
 		{
 			_context.Add(brand);
 			_context.SaveChangesAsync();
 		}
+
 
 	}
 }

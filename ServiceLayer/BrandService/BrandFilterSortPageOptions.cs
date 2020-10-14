@@ -8,6 +8,12 @@ namespace ServiceLayer.BrandService
 {
 	public class BrandFilterSortPageOptions : PagingOptions
 	{
+		public BrandFilterSortPageOptions()
+		{
+			FilterBy = BrandFilterBy.NoFilter;
+			FilterValue = "";
+			OrderBy = BrandOrderByOptions.NoOrder;
+		}
 		#region Filter
 		public BrandFilterBy FilterBy { get; set; }
 		public string FilterValue { get; set; }

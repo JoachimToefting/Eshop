@@ -63,7 +63,7 @@ namespace ConsoleApp
 
 					if (product != null)
 					{
-						await service.Add(new Product
+						await service.AddAsync(new Product
 						{
 							Name = product.Name,
 							Price = product.Price,
@@ -71,7 +71,7 @@ namespace ConsoleApp
 					}
 					else
 					{
-						await service.Update(new Product
+						await service.UpdateAsync(new Product
 						{
 							ProductID = product.ProductID,
 							Name = product.Name,

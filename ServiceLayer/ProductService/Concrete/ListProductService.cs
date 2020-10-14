@@ -12,7 +12,7 @@ using ServiceLayer.ProductService.QueryObjects;
 
 namespace ServiceLayer.ProductService.Concrete
 {
-	public class ListProductService
+	public class ListProductService : IListProductService
 	{
 		private readonly EshopContext _context;
 
@@ -33,7 +33,7 @@ namespace ServiceLayer.ProductService.Concrete
 			//-1 for index offset
 			return productsQuery.Page(options.PageNum - 1, options.PageSize);
 		}
-		public async Task<int> Add(Product product)
+		public async Task<int> AddAsync(Product product)
 		{
 			_context.Add(product);
 			await _context.SaveChangesAsync();
@@ -43,12 +43,12 @@ namespace ServiceLayer.ProductService.Concrete
 		{
 			return await _context.Products.FindAsync(id);
 		}
-		public async Task Update(Product product)
+		public async Task UpdateAsync(Product product)
 		{
-			_context.Attach(product);
+			_context.Update(product);
 			await _context.SaveChangesAsync();
 		}
-		public async Task DeleteById(int id)
+		public async Task DeleteByIdAsync(int id)
 		{
 			_context.Remove(await FindById(id));
 			await _context.SaveChangesAsync();

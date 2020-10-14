@@ -27,7 +27,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				ID = await service.Add(new Product
+				ID = await service.AddAsync(new Product
 				{
 					Name = "New Shape",
 					Price = 1,
@@ -54,7 +54,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				ID = await  service.Add(new Product
+				ID = await  service.AddAsync(new Product
 				{
 					Name = "New Shape Find",
 					Price = 1,
@@ -82,7 +82,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				ID = await service.Add(new Product
+				ID = await service.AddAsync(new Product
 				{
 					Name = "New Shape Update",
 					Price = 1,
@@ -95,7 +95,7 @@ namespace UnitTest
 				var product = await service.FindById(ID);
 				product.Name = "New Shape updated";
 				product.Price = 2;
-				await service.Update(product);
+				await service.UpdateAsync(product);
 			}
 
 			//Assert:
@@ -120,7 +120,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				ID = await service.Add(new Product
+				ID = await service.AddAsync(new Product
 				{
 					Name = "New Shape Delete",
 					Price = 1,
@@ -131,7 +131,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				await service.DeleteById(ID);
+				await service.DeleteByIdAsync(ID);
 			}
 
 			//Assert:

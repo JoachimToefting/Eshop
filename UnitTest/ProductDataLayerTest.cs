@@ -25,7 +25,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext())
 			{
 				var service = new ListProductService(context);
-				ID = await service.Add(new Product
+				ID = await service.AddAsync(new Product
 				{
 					Name = "New Shape",
 					Price = 1,
