@@ -1,10 +1,25 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">Welcome to ShopShop</h1>
+	<div class="">
+		@foreach (var item in Model.Products)
+		{
+			<p>@item.Name</p><br />
+		}
+	</div>
+	<div>
+		<ul class="pagination">
+			@for (int i = 1; i <= Model.totalPages; i++)
+			{
+				<li class="page-item @(i == Model.pageCurrent ? "active" : "")">
+					<a asp-page="/Index" asp-route-pagecurrent="@i" class="page-link">@i</a>
+				</li>
+			}
+		</ul>
+	</div>
 </div>

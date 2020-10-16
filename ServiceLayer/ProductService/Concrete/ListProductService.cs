@@ -29,7 +29,7 @@ namespace ServiceLayer.ProductService.Concrete
 				.OrderProductsBy(options.OrderBy)
 				;
 
-			options.SetupRestOfDto(productsQuery);
+			options.SetupRestOfOption(productsQuery);
 			//-1 for index offset
 			return productsQuery.Page(options.PageNum - 1, options.PageSize);
 		}

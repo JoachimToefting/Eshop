@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ServiceLayer.BrandService.Concrete
 {
@@ -25,16 +26,32 @@ namespace ServiceLayer.BrandService.Concrete
 				.FilterBrandBy(options.FilterBy, options.FilterValue)
 				.OrderBrandBy(options.OrderBy)
 				;
-			options.SetupRestOfDto(brandsQuery);
+			options.SetupRestOfOption(brandsQuery);
 			// -1 for index offset
 			return brandsQuery.Page(options.PageNum - 1, options.PageSize);
 		}
-		public void Add(Brand brand)
+		public async Task<int> AddAsync(BrandEditDto brandEditDto)
 		{
+			Brand brand = brandEditDto.MapBrand();
 			_context.Add(brand);
-			_context.SaveChangesAsync();
+			await _context.SaveChangesAsync();
+			return brand.BrandID;
 		}
-
-
+		public async Task<BrandEditDto> FindEditDtoByIDAsync(int id)
+		{
+			return (await _context.Brands.FindAsync(id)).MapBrandEditDto();
+		}
+		public async Task<int> UpdateAsync(BrandEditDto brandEditDto)
+		{
+			Brand brand = brandEditDto.MapBrand();
+			_context.Attach(brand);
+			await _context.SaveChangesAsync();
+			return brand.BrandID;
+		}
+		public async Task<int> DeleteByIDAsync(int id)
+		{
+			_context.Remove(await _context.Brands.FindAsync(id));
+			return await _context.SaveChangesAsync();
+		}
 	}
 }

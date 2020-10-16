@@ -1,11 +1,14 @@
-﻿using DataLayer.Entities;
-using System.Linq;
+﻿using System.Linq;
+using System.Threading.Tasks;
 
 namespace ServiceLayer.BrandService.Concrete
 {
 	public interface IListBrandService
 	{
-		void Add(Brand brand);
+		Task<int> AddAsync(BrandEditDto brandEditDto);
+		Task<int> DeleteByIDAsync(int id);
 		IQueryable<BrandListDto> FilterSortPage(BrandFilterSortPageOptions options);
+		Task<BrandEditDto> FindEditDtoByIDAsync(int id);
+		Task<int> UpdateAsync(BrandEditDto brandEditDto);
 	}
 }

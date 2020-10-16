@@ -7,8 +7,8 @@ namespace ServiceLayer.Generic
 {
 	public class PagingOptions
 	{
-		public const int DefaultPageSize = 10;
-		//Page number
+		public const int DefaultPageSize = 2;
+		//Page number current
 		public int PageNum { get; set; }
 		//Size of page -> default == DeafultPageSize
 		public int PageSize { get; set; } = DefaultPageSize;
@@ -19,7 +19,7 @@ namespace ServiceLayer.Generic
 		/// </summary>
 		/// <typeparam name="T">Type</typeparam>
 		/// <param name="query">The Query to prepage on</param>
-		public void SetupRestOfDto<T>(IQueryable<T> query)
+		public void SetupRestOfOption<T>(IQueryable<T> query)
 		{
 			//Setting the max pagenumber
 			NumPages = (int)Math.Ceiling((double)query.Count() / PageSize);
