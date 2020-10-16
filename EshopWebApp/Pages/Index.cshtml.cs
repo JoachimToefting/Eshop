@@ -34,7 +34,7 @@ namespace EshopWebApp.Pages
 		public void OnGet()
 		{
 			ProductFilterSortPageOptions productFilterSortPageOptions = new ProductFilterSortPageOptions();
-			if (string.IsNullOrEmpty(searchTerm))
+			if (!string.IsNullOrEmpty(searchTerm))
 			{
 				productFilterSortPageOptions.FilterBy = ServiceLayer.ProductService.QueryObjects.ProductFilterBy.ByLikeAll;
 				productFilterSortPageOptions.FilterValue = searchTerm;

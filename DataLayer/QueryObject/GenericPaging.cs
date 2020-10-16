@@ -21,7 +21,7 @@ namespace DataLayer.QueryObject
 			{
 				throw new Exception("PageSize under 0");
 			}
-			if (pageNumStart != 0)
+			if (pageNumStart > 0)
 			{
 				//to skip number of pages
 				query = query.Skip(pageNumStart * pageSize);

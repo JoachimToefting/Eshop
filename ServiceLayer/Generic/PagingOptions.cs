@@ -23,7 +23,7 @@ namespace ServiceLayer.Generic
 		{
 			//Setting the max pagenumber
 			NumPages = (int)Math.Ceiling((double)query.Count() / PageSize);
-			//PageNum -> max:NumPages min:1 
+			//PageNum -> max:NumPages min:1
 			PageNum = Math.Min(Math.Max(1, PageNum), NumPages);
 		}
 	}
