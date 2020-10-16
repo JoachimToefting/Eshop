@@ -28,11 +28,17 @@ namespace EshopWebApp.Pages
 		public int? pageSize { get; set; }
 		[BindProperty]
 		public int totalPages { get; set; }
+		[BindProperty(SupportsGet = true)]
 		public string searchTerm { get; set; }
 		public IList<ProductListDto> Products { get; set; }
 		public void OnGet()
 		{
 			ProductFilterSortPageOptions productFilterSortPageOptions = new ProductFilterSortPageOptions();
+			if (string.IsNullOrEmpty(searchTerm))
+			{
+				productFilterSortPageOptions.FilterBy = ServiceLayer.ProductService.QueryObjects.ProductFilterBy.ByLikeAll;
+				productFilterSortPageOptions.FilterValue = searchTerm;
+			}
 			
 			if (pageSize.HasValue)
 			{
@@ -42,10 +48,8 @@ namespace EshopWebApp.Pages
 			{
 				productFilterSortPageOptions.PageNum = (int)pageCurrent;
 			}
-			
 			Products = _listProductService.FilterSortPage(productFilterSortPageOptions).ToList();
 			totalPages = productFilterSortPageOptions.NumPages;
-
 		}
 	}
 }

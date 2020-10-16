@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,12 @@ namespace ServiceLayer.ProductService.QueryObjects
 		ByName,
 		ByPriceMax,
 		ByPriceMin,
-		ByBrand
+		ByBrand,
+		ByLikeAll
 	}
 	public static class ProductListDtoFilter
 	{
-		public static IQueryable<ProductListDto> FilterProductBy(this IQueryable<ProductListDto> products,ProductFilterBy filterBy, string filterValue)
+		public static IQueryable<ProductListDto> FilterProductBy(this IQueryable<ProductListDto> products, ProductFilterBy filterBy, string filterValue)
 		{
 			if (string.IsNullOrEmpty(filterValue))
 			{
@@ -33,6 +35,8 @@ namespace ServiceLayer.ProductService.QueryObjects
 					return products.Where(p => p.Price >= double.Parse(filterValue));
 				case ProductFilterBy.ByBrand:
 					return products.Where(p => p.BrandName.Contains(filterValue));
+				case ProductFilterBy.ByLikeAll:
+					return products.Where(p => EF.Functions.Like(p.Name, "*" + filterValue + "*") || EF.Functions.Like(p.BrandName, "*" + filterValue + "*") || p.Price.ToString() == filterValue);
 				default:
 					throw new Exception("filter unhandled filtertype");
 			}
