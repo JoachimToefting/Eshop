@@ -69,3 +69,16 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+/*ThemeMode*/
+.themeMode-btn{
+    background-color:black;
+    color:white;
+}
+.themeMode-white{
+    background-color:whitesmoke;
+    color:black;
+}
+.themeMode-black{
+    background-color:#303030;
+    color:white;
+}

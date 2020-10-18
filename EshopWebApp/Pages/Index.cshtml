@@ -6,15 +6,17 @@
 
 <div class="text-center">
 	<h1 class="display-4">Welcome to ShopShop</h1>
+	<h5>new theme option:</h5>
+		<input asp-for="theme" type="checkbox" id="ThemeCheckbox" class="themeMode-btn" onclick="Themechange()">Themechange</input>
 	<div>
 		<form method="get">
 			<div class="form-group">
 				<label asp-for="searchTerm" class="control-label"></label>
-				<input asp-for="searchTerm" class="form-control"/>
+				<input asp-for="searchTerm" class="form-control" />
 				<span asp-validation-for="searchTerm" class="text-danger"></span>
-				<input type="submit" value="Search" class="btn btn-primary"/>
+				<input type="submit" value="Search" class="btn btn-primary" />
 			</div>
-			
+
 		</form>
 	</div>
 	<div class="">
@@ -28,7 +30,7 @@
 			@for (int i = 1; i <= Model.totalPages; i++)
 			{
 				<li class="page-item @(i == Model.pageCurrent ? "active" : "")">
-					<a asp-page="/Index" asp-route-pagecurrent="@i" class="page-link">@i</a>
+					<a asp-page="/Index" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" class="page-link">@i</a>
 				</li>
 			}
 		</ul>
