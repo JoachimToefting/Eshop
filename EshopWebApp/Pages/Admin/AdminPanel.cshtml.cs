@@ -11,6 +11,7 @@ namespace EshopWebApp.Pages.Admin
     {
         public void OnGet()
         {
+
         }
     }
 }

@@ -3,11 +3,9 @@
 
 // Write your Javascript code.
 function Themechange() {
-	console.log("js start");
 	var theme = document.getElementsByClassName("themeMode");
 	var themecheckbox = document.getElementById("ThemeCheckbox");
 
-	console.log(themecheckbox.checked);
 	if (themecheckbox.checked == true) {
 		document.cookie = "Theme=themeMode-black;samesite=lax";
 	}
@@ -19,5 +17,4 @@ function Themechange() {
 		theme[i].classList.toggle("themeMode-white");
 		theme[i].classList.toggle("themeMode-black");
 	}
-	console.log("cookie changes")
 }
