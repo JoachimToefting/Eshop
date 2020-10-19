@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,6 +25,7 @@
                     </ul>
                 </div>
             </div>
+			<input type="checkbox" id="ThemeCheckbox" checked="@ViewData["themeCheck"]" onclick="Themechange()"/>
             <a asp-area="" asp-page="/Admin/AdminPanel">Admin</a>
         </nav>
     </header>

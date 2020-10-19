@@ -1,3 +1,24 @@
 ﻿@{
-    Layout = "_Layout";
+	Layout = "_Layout";
+
+	string themeCookie = Context.Request.Cookies["Theme"];
+
+	if (themeCookie != null)
+	{
+		ViewData["Theme"] = themeCookie;
+		if (themeCookie == "themeMode-black")
+		{
+			ViewData["themeCheck"] = true;
+		}
+		else
+		{
+			ViewData["themeCheck"] = false;
+		}
+	}
+	else
+	{
+		ViewData["Theme"] = "themeMode-white";
+	}
+
+
 }

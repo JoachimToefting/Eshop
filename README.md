@@ -61,6 +61,7 @@ Der skal installeres disse NuGet pakker til følgene projekter:
 -  [x] UnitTest
 -  [ ] Dokument database til Egenskaber på produkter
 -  [ ] Seeding med Json
+-  [x] Cookie darkmode
 
 ## ER diagram
 ![EfDiagram](ERDiagram.PNG)

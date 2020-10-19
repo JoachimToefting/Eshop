@@ -36,24 +36,6 @@ namespace EshopWebApp.Pages
 		public IList<ProductListDto> Products { get; set; }
 		public void OnGet()
 		{
-			string themeCookie = Request.Cookies["Theme"];
-			if (themeCookie != null)
-			{
-				ViewData["Theme"] = themeCookie;
-			}
-			else
-			{
-				if (theme)
-				{
-					ViewData["Theme"] = "themeMode-black";
-					Response.Cookies.Append("Theme", "themeMode-black");
-				}
-				else
-				{
-					ViewData["Theme"] = "themeMode-white";
-					Response.Cookies.Append("Theme", "themeMode-white");
-				}
-			}
 			ProductFilterSortPageOptions productFilterSortPageOptions = new ProductFilterSortPageOptions();
 			if (!string.IsNullOrEmpty(searchTerm))
 			{
@@ -71,21 +53,6 @@ namespace EshopWebApp.Pages
 			}
 			Products = _listProductService.FilterSortPage(productFilterSortPageOptions).ToList();
 			totalPages = productFilterSortPageOptions.NumPages;
-		}
-		public void changethemeCookies()
-		{
-			var cookieOption = new CookieOptions
-			{
-				HttpOnly = false
-			};
-			if (theme)
-			{
-				Response.Cookies.Append("Theme","themeMode-black",cookieOption);
-			}
-			else
-			{
-				Response.Cookies.Append("Theme", "themeMode-white", cookieOption);
-			}
 		}
 	}
 }
