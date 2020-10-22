@@ -68,24 +68,28 @@ namespace EshopWebApp.Pages.Admin.ProductPages
 				return Page();
 			}
 
-
+			string fileextension = Upload?.FileName.Split('.').Last();
+			Product.ImgPath = fileextension;
+			int productID;
 			if (Product.ProductID > 0)
 			{
 				await _listProductService.UpdateAsync(Product);
+				productID = Product.ProductID;
 			}
 			else
 			{
-				await _listProductService.AddAsync(Product);
+				productID = await _listProductService.AddAsync(Product);
 			}
-
-			if (Upload != null)
+			//image upload
+			if (Upload != null && (fileextension == "png" || fileextension == "jpg" || fileextension == "jpeg"))
 			{
-				var file = Path.Combine(_webHostEnvironment.ContentRootPath, "upload", Upload.FileName);
+				var file = Path.Combine(_webHostEnvironment.WebRootPath, "img", productID.ToString() + "." + Upload.FileName.Split('.').Last());
 				using (var filestream = new FileStream(file, FileMode.Create))
 				{
 					await Upload.CopyToAsync(filestream);
 				}
 			}
+
 			return RedirectToPage("/admin/AdminPanel");
 		}
 	}

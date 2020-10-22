@@ -118,3 +118,114 @@ System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\User
 2020-10-22 13.47.41.650 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
 2020-10-22 13.47.55.448 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
 2020-10-22 13.48.20.410 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 17.00.38.920 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 17.01.37.132 +02:00 [Error] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware: An unhandled exception has occurred while executing the request.
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Joachim\source\repos\Eshop\EshopWebApp\img\16\png'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at EshopWebApp.Pages.Admin.ProductPages.EditProductModel.OnPostAsync() in C:\Users\Joachim\source\repos\Eshop\EshopWebApp\Pages\Admin\ProductPages\EditProduct.cshtml.cs:line 85
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.ExecutorFactory.GenericTaskHandlerMethod.Convert[T](Object taskAsObject)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.ExecutorFactory.GenericTaskHandlerMethod.Execute(Object receiver, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeHandlerMethodAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeNextPageFilterAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Rethrow(PageHandlerExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-10-22 17.02.35.029 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 17.03.12.506 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 17.03.31.443 +02:00 [Error] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware: An unhandled exception has occurred while executing the request.
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Joachim\source\repos\Eshop\EshopWebApp\img\17.png'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at EshopWebApp.Pages.Admin.ProductPages.EditProductModel.OnPostAsync() in C:\Users\Joachim\source\repos\Eshop\EshopWebApp\Pages\Admin\ProductPages\EditProduct.cshtml.cs:line 85
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.ExecutorFactory.GenericTaskHandlerMethod.Convert[T](Object taskAsObject)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.ExecutorFactory.GenericTaskHandlerMethod.Execute(Object receiver, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeHandlerMethodAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeNextPageFilterAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Rethrow(PageHandlerExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-10-22 17.06.32.879 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 17.06.50.051 +02:00 [Error] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware: An unhandled exception has occurred while executing the request.
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Joachim\source\repos\Eshop\EshopWebApp\img\18.png'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at EshopWebApp.Pages.Admin.ProductPages.EditProductModel.OnPostAsync() in C:\Users\Joachim\source\repos\Eshop\EshopWebApp\Pages\Admin\ProductPages\EditProduct.cshtml.cs:line 85
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.ExecutorFactory.GenericTaskHandlerMethod.Convert[T](Object taskAsObject)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.ExecutorFactory.GenericTaskHandlerMethod.Execute(Object receiver, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeHandlerMethodAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeNextPageFilterAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Rethrow(PageHandlerExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-10-22 17.09.56.292 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 17.10.29.406 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.36.46.815 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.37.22.066 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.37.24.000 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.37.25.704 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.37.47.882 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.37.49.868 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.38.41.168 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.38.59.137 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.39.25.951 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.39.56.983 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.39.59.756 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.40.00.507 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.41.28.957 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.41.31.765 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.41.34.628 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.42.11.341 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.42.14.452 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.42.17.083 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.43.38.641 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.44.39.622 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.46.09.959 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.46.11.967 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.47.21.798 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.50.43.638 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.50.50.055 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.51.53.907 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.53.43.716 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.53.49.525 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.54.55.514 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.54.57.323 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.55.35.052 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.55.39.399 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.55.56.395 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.55.59.731 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.56.01.462 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.56.04.344 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.56.05.343 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.56.05.842 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 18.56.07.076 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed

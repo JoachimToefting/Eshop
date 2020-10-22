@@ -98,7 +98,12 @@ body {
 }
 
 .productImgPar {
+	width:100%;
 }
+	.productImgPar img{
+		max-width:100%;
+		max-height:300px;
+	}
 
 .productTextPar {
 }

@@ -4,7 +4,10 @@
 	<div class="row">
 		<div class="col-3">
 			<div class="productImgPar">
-				
+				@if (!string.IsNullOrEmpty(Model.ImgPath))
+				{
+					<img asp-append-version="true" src="~/img/@Model.ProductID.@Model.ImgPath" />
+				}
 			</div>
 		</div>
 		<div class="col-8">
