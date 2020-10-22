@@ -1,0 +1,5 @@
+2020-10-22 08.55.43.776 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO
+2020-10-22 08.58.01.182 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO
+2020-10-22 08.58.19.469 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO
+2020-10-22 08.59.19.729 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO
+2020-10-22 08.59.34.363 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO

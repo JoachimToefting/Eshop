@@ -17,7 +17,7 @@ namespace DataLayer.QueryObject
 		/// <returns></returns>
 		public static IQueryable<T> Page<T>(this IQueryable<T> query, int pageNumStart, int pageSize)
 		{
-			if (pageSize < 0)
+			if (pageSize <= 0)
 			{
 				throw new Exception("PageSize under 0");
 			}

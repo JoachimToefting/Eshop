@@ -62,6 +62,7 @@ Der skal installeres disse NuGet pakker til følgene projekter:
 -  [ ] Dokument database til Egenskaber på produkter
 -  [ ] Seeding med Json
 -  [x] Cookie darkmode
+-  [x] Logging
 
 ## ER diagram
 ![EfDiagram](ERDiagram.PNG)

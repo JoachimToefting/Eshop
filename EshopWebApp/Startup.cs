@@ -32,6 +32,10 @@ namespace EshopWebApp
 				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddRazorPages();
+
+			services.AddMiniProfiler()
+				.AddEntityFramework();
+
 			services.AddScoped<IListProductService, ListProductService>();
 			services.AddScoped<IListBrandService, ListBrandService>();
 		}
@@ -39,8 +43,10 @@ namespace EshopWebApp
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			
 			if (env.IsDevelopment())
 			{
+				app.UseMiniProfiler();
 				app.UseDeveloperExceptionPage();
 			}
 			else

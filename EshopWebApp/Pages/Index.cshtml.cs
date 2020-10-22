@@ -31,8 +31,6 @@ namespace EshopWebApp.Pages
 		public int totalPages { get; set; }
 		[BindProperty(SupportsGet = true)]
 		public string searchTerm { get; set; }
-		[BindProperty(SupportsGet = true)]
-		public bool theme { get; set; }
 		public IList<ProductListDto> Products { get; set; }
 		public void OnGet()
 		{
@@ -53,6 +51,8 @@ namespace EshopWebApp.Pages
 			}
 			Products = _listProductService.FilterSortPage(productFilterSortPageOptions).ToList();
 			totalPages = productFilterSortPageOptions.NumPages;
+
+			_logger.LogWarning("Oh NO onget index has been executed");
 		}
 	}
 }

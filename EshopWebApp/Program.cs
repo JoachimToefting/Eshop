@@ -20,7 +20,8 @@ namespace EshopWebApp
 			Host.CreateDefaultBuilder(args)
 				.ConfigureWebHostDefaults(webBuilder =>
 				{
-					webBuilder.UseStartup<Startup>();
+					webBuilder.ConfigureLogging(buidler => buidler.AddFile("EshopLoggerFile"))
+					.UseStartup<Startup>();
 				});
 	}
 }

@@ -1,0 +1,36 @@
+﻿@model ServiceLayer.ProductService.ProductListDto
+
+<div class="productBar container">
+	<div class="row">
+		<div class="col-3">
+			<div class="productImgPar">
+				
+			</div>
+		</div>
+		<div class="col-8">
+			<div class="productTextPar">
+				<div class="productHeaderPar">
+					<h2>
+						@if (!string.IsNullOrEmpty(Model.BrandName))
+						{
+							@Model.BrandName@: - 
+						}
+						@Model.Name
+					</h2>
+				</div>
+				<div class="productTextblockPar">
+					<p class="productTextblock">
+						Lorem ipsum
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-1">
+			<div class="productPricePar">
+				<div class="productPrice">
+					<span>@Model.Price.ToString("c")</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

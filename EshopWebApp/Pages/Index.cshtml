@@ -20,7 +20,7 @@
 	<div class="">
 		@foreach (var item in Model.Products)
 		{
-			<p>@item.Name</p><br />
+			@await Html.PartialAsync("_ProductItem",item)
 		}
 	</div>
 	<div>
