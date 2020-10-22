@@ -16,7 +16,8 @@ namespace ServiceLayer.ProductService.QueryObjects
 				Name = p.Name,
 				BrandName = p.Brand.Name,
 				Price = p.Price,
-				NumberOfTags = p.ProductTags.Count()
+				NumberOfTags = p.ProductTags.Count(),
+				ImgPath = p.ImgPath
 			});
 		}
 	}

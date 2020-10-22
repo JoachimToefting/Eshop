@@ -27,7 +27,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				ID = await service.AddAsync(new Product
+				ID = await service.AddAsync(new ProductEditDto
 				{
 					Name = "New Shape",
 					Price = 1,
@@ -54,7 +54,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				ID = await  service.AddAsync(new Product
+				ID = await  service.AddAsync(new ProductEditDto
 				{
 					Name = "New Shape Find",
 					Price = 1,
@@ -65,7 +65,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				var result = await service.FindById(ID);
+				var result = await service.FindEditByIdAsync(ID);
 				Assert.AreEqual("New Shape Find", result.Name);
 			}
 		}
@@ -74,27 +74,30 @@ namespace UnitTest
 		{
 			//Arrange:
 			var options = new DbContextOptionsBuilder<EshopContext>()
-				.UseInMemoryDatabase(databaseName: "FindProductTest")
+				.UseInMemoryDatabase(databaseName: "UpdateProductTest")
 				.Options;
 
 			//Act:
 			int ID;
+			ProductEditDto product;
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				ID = await service.AddAsync(new Product
+				ID = await service.AddAsync(new ProductEditDto
 				{
 					Name = "New Shape Update",
 					Price = 1,
 				});
+				product = await service.FindEditByIdAsync(ID);
 			}
 				//disconncted
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				var product = await service.FindById(ID);
+				
 				product.Name = "New Shape updated";
 				product.Price = 2;
+
 				await service.UpdateAsync(product);
 			}
 
@@ -102,7 +105,8 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				var result = await service.FindById(ID);
+
+				var result = await service.FindEditByIdAsync(ID);
 				Assert.AreEqual("New Shape updated", result.Name);
 				Assert.AreEqual(2, result.Price);
 			}
@@ -112,7 +116,7 @@ namespace UnitTest
 		{
 			//Arrange:
 			var options = new DbContextOptionsBuilder<EshopContext>()
-				.UseInMemoryDatabase(databaseName: "FindProductTest")
+				.UseInMemoryDatabase(databaseName: "DeleteProductTest")
 				.Options;
 
 			//Act:
@@ -120,7 +124,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				ID = await service.AddAsync(new Product
+				ID = await service.AddAsync(new ProductEditDto
 				{
 					Name = "New Shape Delete",
 					Price = 1,
@@ -138,7 +142,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext(options))
 			{
 				var service = new ListProductService(context);
-				Product result = await service.FindById(ID);
+				ProductEditDto result = await service.FindEditByIdAsync(ID);
 				Assert.AreEqual(null, result);
 			}
 		}

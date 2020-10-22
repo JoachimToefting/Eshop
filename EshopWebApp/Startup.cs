@@ -38,6 +38,7 @@ namespace EshopWebApp
 
 			services.AddScoped<IListProductService, ListProductService>();
 			services.AddScoped<IListBrandService, ListBrandService>();
+			//services.AddScoped<IWebHostEnvironment, Webhost>
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

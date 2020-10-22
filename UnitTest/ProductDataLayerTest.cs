@@ -2,6 +2,7 @@
 using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ServiceLayer.ProductService;
 using ServiceLayer.ProductService.Concrete;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace UnitTest
 			using (EshopContext context = new EshopContext())
 			{
 				var service = new ListProductService(context);
-				ID = await service.AddAsync(new Product
+				ID = await service.AddAsync(new ProductEditDto
 				{
 					Name = "New Shape",
 					Price = 1,

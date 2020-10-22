@@ -33,24 +33,26 @@ namespace ServiceLayer.ProductService.Concrete
 			//-1 for index offset
 			return productsQuery.Page(options.PageNum - 1, options.PageSize);
 		}
-		public async Task<int> AddAsync(Product product)
+		public async Task<int> AddAsync(ProductEditDto product)
 		{
-			_context.Add(product);
+			Product productEntity = product.MapProduct();
+			_context.Add(productEntity);
 			await _context.SaveChangesAsync();
-			return product.ProductID;
+			return productEntity.ProductID;
 		}
-		public async Task<Product> FindById(int id)
+		public async Task<ProductEditDto> FindEditByIdAsync(int id)
 		{
-			return await _context.Products.FindAsync(id);
+			return (await _context.Products.FindAsync(id))?.MapProductEditDto();
 		}
-		public async Task UpdateAsync(Product product)
+		public async Task UpdateAsync(ProductEditDto product)
 		{
-			_context.Update(product);
+			Product productEntity = product.MapProduct();
+			_context.Products.Update(productEntity);
 			await _context.SaveChangesAsync();
 		}
 		public async Task DeleteByIdAsync(int id)
 		{
-			_context.Remove(await FindById(id));
+			_context.Remove(await _context.Products.FindAsync(id));
 			await _context.SaveChangesAsync();
 		}
 	}

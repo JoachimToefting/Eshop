@@ -1,15 +1,14 @@
-﻿using DataLayer.Entities;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 
 namespace ServiceLayer.ProductService.Concrete
 {
 	public interface IListProductService
 	{
-		Task<int> AddAsync(Product product);
+		Task<int> AddAsync(ProductEditDto product);
 		Task DeleteByIdAsync(int id);
 		IQueryable<ProductListDto> FilterSortPage(ProductFilterSortPageOptions options);
-		Task<Product> FindById(int id);
-		Task UpdateAsync(Product product);
+		Task<ProductEditDto> FindEditByIdAsync(int id);
+		Task UpdateAsync(ProductEditDto product);
 	}
 }

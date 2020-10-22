@@ -50,36 +50,7 @@ namespace ConsoleApp
 		}
 		public static async Task InsertOrUpdateProduct(ProductListDto product)
 		{
-			if (product != null)
-			{
-				using (EshopContext context = new EshopContext())
-				{
-					ListProductService service = new ListProductService(context);
-					Product result;
-					if (product.ProductID == 0)
-					{
-						result = await service.FindById(product.ProductID);
-					}
-
-					if (product != null)
-					{
-						await service.AddAsync(new Product
-						{
-							Name = product.Name,
-							Price = product.Price,
-						});
-					}
-					else
-					{
-						await service.UpdateAsync(new Product
-						{
-							ProductID = product.ProductID,
-							Name = product.Name,
-							Price = product.Price
-						});
-					}
-				}
-			}
+			
 		}
 		public static async Task<List<ProductListDto>> GetProductsByName(string searchName)
 		{
