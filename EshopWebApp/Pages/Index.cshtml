@@ -11,13 +11,23 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-4">
-						<input asp-for="searchTerm" class="form-control" placeholder="SearchText"/>
+						<input asp-for="searchTerm" class="form-control" placeholder="SearchText" />
 						<span asp-validation-for="searchTerm" class="text-danger"></span>
 					</div>
 					<div class="col-4">
 						<select class="form-control" asp-for="orderBy" asp-items="Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.OrderByOptions>()" onchange="this.form.submit()"></select>
 					</div>
-					<div class="col-4">
+					<div class="col-2">
+						<select asp-for="pageSize" class="form-control">
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="20">20</option>
+							<option value="25">25</option>
+							<option value="100">100</option>
+						</select>
+					</div>
+					<div class="col-2">
 						<input type="submit" value="Search" class="btn btn-primary" />
 					</div>
 				</div>
@@ -35,7 +45,7 @@
 			@for (int i = 1; i <= Model.totalPages; i++)
 			{
 				<li class="page-item @(i == Model.pageCurrent ? "active" : "")">
-					<a asp-page="/Index" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" asp-route-orderby="@Model.orderBy" class="page-link">@i</a>
+					<a asp-page="/Index" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" asp-route-orderby="@Model.orderBy" asp-route-pagesize="@Model.pageSize" class="page-link">@i</a>
 				</li>
 			}
 		</ul>
