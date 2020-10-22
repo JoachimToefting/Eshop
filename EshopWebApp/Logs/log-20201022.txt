@@ -279,3 +279,7 @@ System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\User
 2020-10-22 21.28.29.603 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
 2020-10-22 21.29.04.709 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
 2020-10-22 21.29.49.692 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 21.40.13.835 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 21.40.18.458 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 21.40.20.330 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed
+2020-10-22 21.41.20.387 +02:00 [Warning] EshopWebApp.Pages.IndexModel: Oh NO onget index has been executed

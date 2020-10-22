@@ -59,7 +59,7 @@
 			@for (int i = 1; i <= Model.totalPages; i++)
 			{
 				<li class="page-item @(i == Model.pageCurrent ? "active" : "")">
-					<a asp-page="/Index" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" asp-route-orderby="@Model.orderBy" asp-route-pagesize="@Model.pageSize" class="page-link">@i</a>
+					<a asp-page="/Admin/AdminPanel" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" asp-route-orderby="@Model.orderBy" asp-route-pagesize="@Model.pageSize" class="page-link">@i</a>
 				</li>
 			}
 		</ul>
