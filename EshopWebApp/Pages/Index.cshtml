@@ -9,12 +9,19 @@
 	<div>
 		<form method="get">
 			<div class="form-group">
-				<label asp-for="searchTerm" class="control-label"></label>
-				<input asp-for="searchTerm" class="form-control" />
-				<span asp-validation-for="searchTerm" class="text-danger"></span>
-				<input type="submit" value="Search" class="btn btn-primary" />
+				<div class="row">
+					<div class="col-4">
+						<input asp-for="searchTerm" class="form-control" placeholder="SearchText"/>
+						<span asp-validation-for="searchTerm" class="text-danger"></span>
+					</div>
+					<div class="col-4">
+						<select class="form-control" asp-for="orderBy" asp-items="Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.OrderByOptions>()" onchange="this.form.submit()"></select>
+					</div>
+					<div class="col-4">
+						<input type="submit" value="Search" class="btn btn-primary" />
+					</div>
+				</div>
 			</div>
-
 		</form>
 	</div>
 	<div class="">
@@ -28,7 +35,7 @@
 			@for (int i = 1; i <= Model.totalPages; i++)
 			{
 				<li class="page-item @(i == Model.pageCurrent ? "active" : "")">
-					<a asp-page="/Index" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" class="page-link">@i</a>
+					<a asp-page="/Index" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" asp-route-orderby="@Model.orderBy" class="page-link">@i</a>
 				</li>
 			}
 		</ul>

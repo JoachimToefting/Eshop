@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -7,12 +8,19 @@ namespace ServiceLayer.ProductService.QueryObjects
 {
 	public enum OrderByOptions
 	{
+		[Display(Name = "No Order")]
 		NoOrder = 0,
+		[Display(Name = "By Name Asc.")]
 		ByNameAsc,
+		[Display(Name = "By Name Desc.")]
 		ByNameDesc,
+		[Display(Name = "By Price Asc.")]
 		ByPriceAsc,
+		[Display(Name = "By Price Desc.")]
 		ByPriceDesc,
+		[Display(Name = "By Brand Asc.")]
 		ByBrandNameAsc,
+		[Display(Name = "By Brand Desc.")]
 		ByBrandNameDesc
 	}
 	public static class ProductListDtoSort

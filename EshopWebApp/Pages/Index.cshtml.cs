@@ -31,16 +31,22 @@ namespace EshopWebApp.Pages
 		public int totalPages { get; set; }
 		[BindProperty(SupportsGet = true)]
 		public string searchTerm { get; set; }
+		[BindProperty(SupportsGet = true)]
+		public int? orderBy { get; set; }
 		public IList<ProductListDto> Products { get; set; }
 		public void OnGet()
 		{
+
 			ProductFilterSortPageOptions productFilterSortPageOptions = new ProductFilterSortPageOptions();
 			if (!string.IsNullOrEmpty(searchTerm))
 			{
 				productFilterSortPageOptions.FilterBy = ServiceLayer.ProductService.QueryObjects.ProductFilterBy.ByLikeAll;
 				productFilterSortPageOptions.FilterValue = searchTerm;
 			}
-			
+			if (orderBy.HasValue)
+			{
+				productFilterSortPageOptions.OrderBy = (ServiceLayer.ProductService.QueryObjects.OrderByOptions)orderBy;
+			}
 			if (pageSize.HasValue)
 			{
 				productFilterSortPageOptions.PageSize = (int)pageSize;
