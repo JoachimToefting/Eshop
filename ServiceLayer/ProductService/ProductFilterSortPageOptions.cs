@@ -16,6 +16,7 @@ namespace ServiceLayer.ProductService
 
 		#region Ordering
 		public OrderByOptions OrderBy { get; set; }
+		public bool FeaturedFirst { get; set; } = true;
 		#endregion
 	}
 }

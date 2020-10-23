@@ -29,31 +29,46 @@ namespace ServiceLayer.ProductService.QueryObjects
 	}
 	public static class ProductListDtoSort
 	{
-		public static IQueryable<ProductListDto> OrderProductsBy(this IQueryable<ProductListDto> products, OrderByOptions orderByOptions)
+		public static IQueryable<ProductListDto> OrderProductsBy(this IQueryable<ProductListDto> products, OrderByOptions orderByOptions, bool featured)
 		{
+			IOrderedQueryable<ProductListDto> orderetProducts = (IOrderedQueryable<ProductListDto>)products;
+			if (featured)
+			{
+				orderetProducts = orderetProducts.OrderByDescending(p => p.Featured);
+			}
 			switch (orderByOptions)
 			{
 				case OrderByOptions.NoOrder:
-					return products;
+					orderetProducts = orderetProducts;
+					break;
 				case OrderByOptions.ByNameAsc:
-					return products.OrderBy(p => p.Name);
+					orderetProducts = orderetProducts.ThenBy(p => p.Name);
+					break;
 				case OrderByOptions.ByNameDesc:
-					return products.OrderByDescending(p => p.Name);
+					orderetProducts = orderetProducts.ThenByDescending(p => p.Name);
+					break;
 				case OrderByOptions.ByPriceAsc:
-					return products.OrderBy(p => p.Price);
+					orderetProducts = orderetProducts.ThenBy(p => p.Price);
+					break;
 				case OrderByOptions.ByPriceDesc:
-					return products.OrderByDescending(p => p.Price);
+					orderetProducts = orderetProducts.ThenByDescending(p => p.Price);
+					break;
 				case OrderByOptions.ByBrandNameAsc:
-					return products.OrderBy(p => p.BrandName);
+					orderetProducts = orderetProducts.ThenBy(p => p.BrandName);
+					break;
 				case OrderByOptions.ByBrandNameDesc:
-					return products.OrderByDescending(p => p.BrandName);
+					orderetProducts = orderetProducts.ThenByDescending(p => p.BrandName);
+					break;
 				case OrderByOptions.ByDescriptionAsc:
-					return products.OrderBy(p => p.Description);
+					orderetProducts = orderetProducts.ThenBy(p => p.Description);
+					break;
 				case OrderByOptions.ByDescriptionDesc:
-					return products.OrderByDescending(p => p.Description);
+					orderetProducts = orderetProducts.ThenByDescending(p => p.Description);
+					break;
 				default:
 					throw new Exception("bad order");
 			}
+			return (IQueryable<ProductListDto>)orderetProducts;
 		}
 	}
 }

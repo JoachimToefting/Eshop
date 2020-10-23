@@ -12,5 +12,6 @@ namespace ServiceLayer.ProductService
 		public int? BrandID { get; set; }
 		public string ImgPath { get; set; }
 		public string Description { get; set; }
+		public bool Featured { get; set; }
 	}
 }

@@ -93,6 +93,7 @@ namespace EshopWebApp.Pages.Admin.ProductPages
 				}
 				_logger.LogInformation("Images uploaded for product: "+productID);
 			}
+			_logger.LogInformation($"Product: {productID} change or created");
 
 			return RedirectToPage("/admin/AdminPanel");
 		}

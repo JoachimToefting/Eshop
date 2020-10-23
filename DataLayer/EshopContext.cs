@@ -43,6 +43,11 @@ namespace DataLayer
 			modelBuilder.Entity<ProductTag>()
 				.HasKey(pt => new { pt.ProductID, pt.TypeID });
 
+			//Product Default value
+			modelBuilder.Entity<Product>()
+				.Property(p => p.Featured)
+				.HasDefaultValue(false);
+
 #if DEBUG
 			modelBuilder.Entity<Brand>().HasData(
 				new Brand

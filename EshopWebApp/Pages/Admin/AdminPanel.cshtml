@@ -14,7 +14,7 @@
 					<input asp-for="searchTerm" class="form-control" placeholder="SearchText" />
 					<span asp-validation-for="searchTerm" class="text-danger"></span>
 				</div>
-				<div class="col-4">
+				<div class="col-3">
 					<select class="form-control" asp-for="orderBy" asp-items="Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.OrderByOptions>()" onchange="this.form.submit()"></select>
 				</div>
 				<div class="col-2">
@@ -26,6 +26,10 @@
 						<option value="25">25</option>
 						<option value="100">100</option>
 					</select>
+				</div>
+				<div class="col-1">
+					@Html.CheckBoxFor(model => model.featuredFirst);
+					@*<input class="form-control" asp-for="featuredFirst" value="true" checked/>*@
 				</div>
 				<div class="col-2">
 					<input type="submit" value="Search" class="btn btn-primary" />
@@ -59,7 +63,7 @@
 			@for (int i = 1; i <= Model.totalPages; i++)
 			{
 				<li class="page-item @(i == Model.pageCurrent ? "active" : "")">
-					<a asp-page="/Admin/AdminPanel" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" asp-route-orderby="@Model.orderBy" asp-route-pagesize="@Model.pageSize" class="page-link">@i</a>
+					<a asp-page="/Admin/AdminPanel" asp-route-pagecurrent="@i" asp-route-searchterm="@Model.searchTerm" asp-route-orderby="@Model.orderBy" asp-route-pagesize="@Model.pageSize"  class="page-link">@i</a>
 				</li>
 			}
 		</ul>

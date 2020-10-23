@@ -18,7 +18,8 @@ namespace ServiceLayer.ProductService.QueryObjects
 				Price = p.Price,
 				NumberOfTags = p.ProductTags.Count(),
 				ImgPath = p.ImgPath,
-				Description = p.Description
+				Description = p.Description,
+				Featured = p.Featured
 			});
 		}
 		public static ProductListDto MapProductListDtoSingle(this Product product)
@@ -31,7 +32,9 @@ namespace ServiceLayer.ProductService.QueryObjects
 				BrandName = product.Brand?.Name,
 				Price = product.Price,
 				ImgPath = product.ImgPath,
-				Description = product.Description
+				Description = product.Description,
+				Featured = product.Featured
+				
 			};
 			if (product.ProductTags != null)
 			{

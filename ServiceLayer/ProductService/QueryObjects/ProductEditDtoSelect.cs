@@ -17,7 +17,8 @@ namespace ServiceLayer.ProductService.QueryObjects
 				Price = product.Price,
 				BrandID = product.BrandID,
 				ImgPath = product.ImgPath,
-				Description = product.Description
+				Description = product.Description,
+				Featured = product.Featured
 			};
 		}
 		public static Product MapProduct(this ProductEditDto product)
@@ -29,7 +30,8 @@ namespace ServiceLayer.ProductService.QueryObjects
 				Price = product.Price,
 				BrandID = product.BrandID,
 				ImgPath = product.ImgPath,
-				Description = product.Description
+				Description = product.Description,
+				Featured = product.Featured
 			};
 		}
 	}

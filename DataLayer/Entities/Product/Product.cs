@@ -13,6 +13,7 @@ namespace DataLayer.Entities
 		public double Price { get; set; }
 		public string ImgPath { get; set; }
 		public string Description { get; set; }
+		public bool Featured { get; set; }
 		public int? BrandID { get; set; }
 		public Brand Brand { get; set; }
 		public ICollection<ProductTag> ProductTags { get; set; }

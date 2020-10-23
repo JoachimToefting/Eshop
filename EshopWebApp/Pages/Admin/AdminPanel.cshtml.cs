@@ -12,12 +12,12 @@ using ServiceLayer.ProductService.Concrete;
 
 namespace EshopWebApp.Pages.Admin
 {
-    public class AdminPanelModel : PageModel
-    {
-        private readonly IListProductService _listProductService;
+	public class AdminPanelModel : PageModel
+	{
+		private readonly IListProductService _listProductService;
 		public AdminPanelModel(IListProductService listProductService)
 		{
-            _listProductService = listProductService;
+			_listProductService = listProductService;
 		}
 		[BindProperty(SupportsGet = true)]
 		public int? pageCurrent { get; set; }
@@ -30,15 +30,18 @@ namespace EshopWebApp.Pages.Admin
 		public string searchTerm { get; set; }
 		[BindProperty(SupportsGet = true)]
 		public int? orderBy { get; set; }
+		[BindProperty(SupportsGet = true)]
+		public bool featuredFirst { get; set; }
 		public IList<ProductListDto> Products { get; set; }
 		public async Task OnGetAsync()
-        {
-            ProductFilterSortPageOptions productFilterSortPageOptions = new ProductFilterSortPageOptions();
+		{
+			ProductFilterSortPageOptions productFilterSortPageOptions = new ProductFilterSortPageOptions();
 			if (!string.IsNullOrEmpty(searchTerm))
 			{
 				productFilterSortPageOptions.FilterBy = ServiceLayer.ProductService.QueryObjects.ProductFilterBy.ByLikeAll;
 				productFilterSortPageOptions.FilterValue = searchTerm;
 			}
+			productFilterSortPageOptions.FeaturedFirst = featuredFirst;
 			if (orderBy.HasValue)
 			{
 				productFilterSortPageOptions.OrderBy = (ServiceLayer.ProductService.QueryObjects.OrderByOptions)orderBy;
@@ -54,5 +57,5 @@ namespace EshopWebApp.Pages.Admin
 			Products = await _listProductService.FilterSortPage(productFilterSortPageOptions).ToListAsync();
 			totalPages = productFilterSortPageOptions.NumPages;
 		}
-    }
+	}
 }
