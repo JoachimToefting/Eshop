@@ -12,6 +12,7 @@ using ServiceLayer.ProductService.QueryObjects;
 
 namespace ServiceLayer.ProductService.Concrete
 {
+
 	public class ListProductService : IListProductService
 	{
 		private readonly EshopContext _context;
@@ -43,6 +44,10 @@ namespace ServiceLayer.ProductService.Concrete
 		public async Task<ProductEditDto> FindEditByIdAsync(int id)
 		{
 			return (await _context.Products.FindAsync(id))?.MapProductEditDto();
+		}
+		public async Task<ProductListDto> FindListByIdAsync(int id)
+		{
+			return (await _context.Products.FindAsync(id))?.MapProductListDtoSingle();
 		}
 		public async Task UpdateAsync(ProductEditDto product)
 		{

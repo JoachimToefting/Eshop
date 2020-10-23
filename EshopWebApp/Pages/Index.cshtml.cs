@@ -57,8 +57,6 @@ namespace EshopWebApp.Pages
 			}
 			Products = _listProductService.FilterSortPage(productFilterSortPageOptions).ToList();
 			totalPages = productFilterSortPageOptions.NumPages;
-
-			_logger.LogWarning("Oh NO onget index has been executed");
 		}
 	}
 }

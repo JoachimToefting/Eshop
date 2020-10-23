@@ -13,5 +13,6 @@ namespace ServiceLayer.ProductService
 		public string BrandName { get; set; }
 		public int NumberOfTags { get; set; }
 		public string ImgPath { get; set; }
+		public string Description { get; set; }
 	}
 }

@@ -20,5 +20,22 @@ namespace ServiceLayer.ProductService.QueryObjects
 				ImgPath = p.ImgPath
 			});
 		}
+		public static ProductListDto MapProductListDtoSingle(this Product product)
+		{
+
+			var p = new ProductListDto
+			{
+				ProductID = product.ProductID,
+				Name = product.Name,
+				BrandName = product.Brand?.Name,
+				Price = product.Price,
+				ImgPath = product.ImgPath
+			};
+			if (product.ProductTags != null)
+			{
+				p.NumberOfTags = product.ProductTags.Count();
+			}
+			return p;
+		}
 	}
 }

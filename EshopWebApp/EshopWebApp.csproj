@@ -28,7 +28,6 @@
     <Folder Include="Logs\" />
     <Folder Include="Pages\Shared\Components\" />
     <Folder Include="ViewComponents\" />
-    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>

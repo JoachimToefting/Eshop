@@ -1,0 +1,28 @@
+﻿@model ServiceLayer.ProductService.ProductListDto
+<div class="productShow">
+	<div class="row">
+		<div class="col-5">
+			<div class="productShowLeft">
+				@if (!string.IsNullOrEmpty(Model.ImgPath))
+				{
+					<img asp-append-version="true" src="~/img/@Model.ProductID.@Model.ImgPath" />
+				}
+				else
+				{
+					<img asp-append-version="true" src="~/img/Placeholder.png" />
+				}
+			</div>
+		</div>
+		<div class="col-7">
+			<div class="productShowRight">
+				<h2>@Model.Name</h2>
+				@if (!string.IsNullOrEmpty(Model.BrandName))
+				{
+					<h4>@Model.BrandName</h4>
+				}
+				<p></p>
+				<span>Price: @Model.Price.ToString("C")</span>
+			</div>
+		</div>
+	</div>
+</div>

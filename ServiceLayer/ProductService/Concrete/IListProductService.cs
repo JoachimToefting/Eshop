@@ -9,6 +9,7 @@ namespace ServiceLayer.ProductService.Concrete
 		Task DeleteByIdAsync(int id);
 		IQueryable<ProductListDto> FilterSortPage(ProductFilterSortPageOptions options);
 		Task<ProductEditDto> FindEditByIdAsync(int id);
+		Task<ProductListDto> FindListByIdAsync(int id);
 		Task UpdateAsync(ProductEditDto product);
 	}
 }

@@ -15,6 +15,7 @@ using ServiceLayer.ProductService.QueryObjects;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace EshopWebApp.Pages.Admin.ProductPages
 {
@@ -23,12 +24,14 @@ namespace EshopWebApp.Pages.Admin.ProductPages
 		private readonly IListProductService _listProductService;
 		private readonly IListBrandService _listBrandService;
 		private readonly IWebHostEnvironment _webHostEnvironment;
+		private readonly ILogger<EditProductModel> _logger;
 
-		public EditProductModel(IListProductService listProductService, IListBrandService listBrandService, IWebHostEnvironment webHostEnvironment)
+		public EditProductModel(IListProductService listProductService, IListBrandService listBrandService, IWebHostEnvironment webHostEnvironment, ILogger<EditProductModel> logger)
 		{
 			_listProductService = listProductService;
 			_listBrandService = listBrandService;
 			_webHostEnvironment = webHostEnvironment;
+			_logger = logger;
 		}
 
 		[BindProperty]
@@ -88,6 +91,7 @@ namespace EshopWebApp.Pages.Admin.ProductPages
 				{
 					await Upload.CopyToAsync(filestream);
 				}
+				_logger.LogInformation("Images uploaded for product: "+productID);
 			}
 
 			return RedirectToPage("/admin/AdminPanel");
