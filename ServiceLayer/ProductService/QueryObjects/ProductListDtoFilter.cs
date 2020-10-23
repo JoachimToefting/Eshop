@@ -36,7 +36,7 @@ namespace ServiceLayer.ProductService.QueryObjects
 				case ProductFilterBy.ByBrand:
 					return products.Where(p => p.BrandName.Contains(filterValue));
 				case ProductFilterBy.ByLikeAll:
-					return products.Where(p => EF.Functions.Like(p.Name.ToLower(), "%" + filterValue.ToLower() + "%") || EF.Functions.Like(p.BrandName.ToLower(), "%" + filterValue.ToLower() + "%") || p.Price.ToString() == filterValue);
+					return products.Where(p => EF.Functions.Like(p.Name.ToLower(), "%" + filterValue.ToLower() + "%") || EF.Functions.Like(p.BrandName.ToLower(), "%" + filterValue.ToLower() + "%") || EF.Functions.Like(p.Description.ToLower(), "%" + filterValue.ToLower() + "%") || p.Price.ToString() == filterValue);
 				default:
 					throw new Exception("filter unhandled filtertype");
 			}

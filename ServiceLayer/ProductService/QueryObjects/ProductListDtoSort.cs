@@ -21,7 +21,11 @@ namespace ServiceLayer.ProductService.QueryObjects
 		[Display(Name = "By Brand Asc.")]
 		ByBrandNameAsc,
 		[Display(Name = "By Brand Desc.")]
-		ByBrandNameDesc
+		ByBrandNameDesc,
+		[Display(Name = "By Description Asc.")]
+		ByDescriptionAsc,
+		[Display(Name = "By Description Desc.")]
+		ByDescriptionDesc
 	}
 	public static class ProductListDtoSort
 	{
@@ -43,6 +47,10 @@ namespace ServiceLayer.ProductService.QueryObjects
 					return products.OrderBy(p => p.BrandName);
 				case OrderByOptions.ByBrandNameDesc:
 					return products.OrderByDescending(p => p.BrandName);
+				case OrderByOptions.ByDescriptionAsc:
+					return products.OrderBy(p => p.Description);
+				case OrderByOptions.ByDescriptionDesc:
+					return products.OrderByDescending(p => p.Description);
 				default:
 					throw new Exception("bad order");
 			}

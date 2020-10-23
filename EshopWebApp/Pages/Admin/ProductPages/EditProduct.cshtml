@@ -28,7 +28,13 @@
 				<label asp-for="Product.BrandID" class="control-label">Brand:</label>
 				<select asp-for="Product.BrandID" class="form-control" asp-items="ViewBag.Brand">
 					<option value="" disabled>Choose a Brand</option>
+					<option value="">No Brand</option>
 				</select>
+			</div>
+			<div class="form-group">
+				<label asp-for="Product.Description" class="control-label">Description:</label>
+				<textarea asp-for="Product.Description" class="form-control textArea" placeholder="Description text"></textarea>
+				<span asp-validation-for="Product.Description" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="Upload" class="control-label">Product image</label>
@@ -39,6 +45,18 @@
 				<input type="submit" value="Create" class="btn btn-primary" />
 			</div>
 		</form>
+	</div>
+	<div class="col-md-8">
+		<div class="productImgPar">
+			@if (!string.IsNullOrEmpty(Model.Product.ImgPath))
+			{
+				<img asp-append-version="true" src="~/img/@Model.Product.ProductID.@Model.Product.ImgPath" />
+			}
+			else
+			{
+				<img asp-append-version="true" src="~/img/Placeholder.png" />
+			}
+		</div>
 	</div>
 </div>
 
