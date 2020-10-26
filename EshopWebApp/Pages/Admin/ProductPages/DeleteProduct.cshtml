@@ -15,6 +15,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Product.ProductID" />
+        <input type="hidden" asp-for="Product.ImgPath" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="/Admin/AdminPanel">Back to Admin Panel</a>
     </form>
