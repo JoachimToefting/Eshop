@@ -1,5 +1,7 @@
 ﻿@model ServiceLayer.ProductService.ProductListDto
-
+@{
+	string countid = "Count" + Model.ProductID;
+}
 <div class="productBar container">
 	<div class="row">
 		<div class="col-3">
@@ -33,6 +35,8 @@
 					{
 						<span>This product is featured</span>
 					}
+					<input class="buycount" type="number" id="@countid" placeholder="amount"/>
+					<div class="buy" onclick="AddToCart(@Model.ProductID)">Add to Cart</div>
 				</div>
 			</div>
 		</div>
