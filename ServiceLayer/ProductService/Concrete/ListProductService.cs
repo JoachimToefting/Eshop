@@ -27,7 +27,7 @@ namespace ServiceLayer.ProductService.Concrete
 				.AsNoTracking()
 				.MapProductListDto()
 				.FilterProductBy(options.FilterBy, options.FilterValue)
-				.OrderProductsBy(options.OrderBy , options.FeaturedFirst)
+				.OrderProductsBy(options.OrderBy)
 				;
 
 			options.SetupRestOfOption(productsQuery);

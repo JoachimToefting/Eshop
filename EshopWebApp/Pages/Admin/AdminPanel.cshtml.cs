@@ -41,7 +41,6 @@ namespace EshopWebApp.Pages.Admin
 				productFilterSortPageOptions.FilterBy = ServiceLayer.ProductService.QueryObjects.ProductFilterBy.ByLikeAll;
 				productFilterSortPageOptions.FilterValue = searchTerm;
 			}
-			productFilterSortPageOptions.FeaturedFirst = featuredFirst;
 			if (orderBy.HasValue)
 			{
 				productFilterSortPageOptions.OrderBy = (ServiceLayer.ProductService.QueryObjects.OrderByOptions)orderBy;

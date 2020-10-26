@@ -29,17 +29,13 @@ namespace ServiceLayer.ProductService.QueryObjects
 	}
 	public static class ProductListDtoSort
 	{
-		public static IQueryable<ProductListDto> OrderProductsBy(this IQueryable<ProductListDto> products, OrderByOptions orderByOptions, bool featured)
+		public static IQueryable<ProductListDto> OrderProductsBy(this IQueryable<ProductListDto> products, OrderByOptions orderByOptions)
 		{
-			IOrderedQueryable<ProductListDto> orderetProducts = (IOrderedQueryable<ProductListDto>)products;
-			if (featured)
-			{
-				orderetProducts = orderetProducts.OrderByDescending(p => p.Featured);
-			}
+			IOrderedQueryable<ProductListDto> orderetProducts = products.OrderByDescending(p => p.Featured);
 			switch (orderByOptions)
 			{
 				case OrderByOptions.NoOrder:
-					orderetProducts = orderetProducts;
+					//orderetProducts = orderetProducts;
 					break;
 				case OrderByOptions.ByNameAsc:
 					orderetProducts = orderetProducts.ThenBy(p => p.Name);

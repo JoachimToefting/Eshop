@@ -37,8 +37,12 @@
 				<span asp-validation-for="Product.Description" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="Upload" class="control-label">Product image</label>
+				<label asp-for="Upload" class="control-label">Product image:</label>
 				<input type="file" asp-for="Upload" />
+			</div>
+			<div class="form-group">
+				<label asp-for="Product.Featured" class="form-check-label">Featured:</label>
+				@Html.CheckBoxFor(m => m.Product.Featured, new { @class = "form-check-input" })
 			</div>
 			<div class="form-group">
 				<input type="hidden" asp-for="Product.ProductID" />

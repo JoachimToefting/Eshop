@@ -14,7 +14,14 @@
 		</div>
 		<div class="col-3">
 			<div>
-				<div>@Model.BrandName</div>
+				<div>
+					@Model.BrandName
+					@if (Model.Featured)
+					{
+						<span>&nbsp;- Featured</span>
+					}
+				</div>
+
 			</div>
 		</div>
 		<div class="col-2">

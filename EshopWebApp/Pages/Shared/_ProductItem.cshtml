@@ -27,8 +27,12 @@
 				</div>
 				<div class="productTextblockPar">
 					<p class="productTextblock">
-						Lorem ipsum
+						@Model.Description
 					</p>
+					@if (Model.Featured)
+					{
+						<span>This product is featured</span>
+					}
 				</div>
 			</div>
 		</div>

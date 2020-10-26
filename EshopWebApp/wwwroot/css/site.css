@@ -179,3 +179,7 @@ body {
 	.productShowRight span {
 		font-size: 1.3rem;
 	}
+/*Bootstrap extended*/
+.form-check-label{
+	margin-right:1.5rem;
+}

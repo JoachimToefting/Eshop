@@ -51,6 +51,7 @@ Der skal installeres disse NuGet pakker til følgene projekter:
    -  [x] Product
       -  [x] CRUD
       -  [x] Billeder
+      -  [x] Featured
    -  [ ] User
       -  [ ] CRUD
    -  [ ] Cart / Order
