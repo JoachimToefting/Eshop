@@ -44,8 +44,16 @@
 				<label asp-for="Product.Featured" class="form-check-label">Featured:</label>
 				@Html.CheckBoxFor(m => m.Product.Featured, new { @class = "form-check-input" })
 			</div>
+			@if (!string.IsNullOrEmpty(Model.Product.ImgPath))
+			{
+				<div class="form-group">
+					<label asp-for="DeleteImg" class="form-check-label">Delete Image:</label>
+					@Html.CheckBoxFor(m => m.DeleteImg, new { @class = "form-check-input" })
+				</div>
+			}
 			<div class="form-group">
 				<input type="hidden" asp-for="Product.ProductID" />
+				<input type="hidden" asp-for="Product.ImgPath" />
 				<input type="submit" value="Create" class="btn btn-primary" />
 			</div>
 		</form>

@@ -40,6 +40,8 @@ namespace EshopWebApp.Pages.Admin.ProductPages
 		public IFormFile Upload { get; set; }
 		[BindProperty(SupportsGet = true)]
 		public int? id { get; set; }
+		[BindProperty]
+		public bool DeleteImg { get; set; }
 
 		public async Task<IActionResult> OnGetAsync(int? id)
 		{
@@ -70,9 +72,26 @@ namespace EshopWebApp.Pages.Admin.ProductPages
 			{
 				return Page();
 			}
+			if (DeleteImg)
+			{
+				string filepath = Path.Combine(_webHostEnvironment.WebRootPath, "img", $"{Product.ProductID}.{Product.ImgPath}");
+				if (System.IO.File.Exists(filepath))
+				{
+					//No need to update product as it will do that itself
+					System.IO.File.Delete(filepath);
+					Product.ImgPath = null;
+				}
+				else
+				{
+					_logger.LogInformation("No file was deleted");
+				}
+			}
 
 			string fileextension = Upload?.FileName.Split('.').Last();
-			Product.ImgPath = fileextension;
+			if (fileextension!=null)
+			{
+				Product.ImgPath = fileextension;
+			}
 			int productID;
 			if (Product.ProductID > 0)
 			{
@@ -91,7 +110,7 @@ namespace EshopWebApp.Pages.Admin.ProductPages
 				{
 					await Upload.CopyToAsync(filestream);
 				}
-				_logger.LogInformation("Images uploaded for product: "+productID);
+				_logger.LogInformation("Images uploaded for product: " + productID);
 			}
 			_logger.LogInformation($"Product: {productID} change or created");
 

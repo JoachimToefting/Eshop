@@ -7,6 +7,7 @@ namespace ServiceLayer.ProductService.Concrete
 	{
 		Task<int> AddAsync(ProductEditDto product);
 		Task DeleteByIdAsync(int id);
+		Task DeleteImgPathByID(int id);
 		IQueryable<ProductListDto> FilterSortPage(ProductFilterSortPageOptions options);
 		Task<ProductEditDto> FindEditByIdAsync(int id);
 		Task<ProductListDto> FindListByIdAsync(int id);

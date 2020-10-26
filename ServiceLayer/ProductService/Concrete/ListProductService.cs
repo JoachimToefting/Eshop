@@ -60,5 +60,11 @@ namespace ServiceLayer.ProductService.Concrete
 			_context.Remove(await _context.Products.FindAsync(id));
 			await _context.SaveChangesAsync();
 		}
+		public async Task DeleteImgPathByID(int id)
+		{
+			Product product = await _context.Products.FindAsync(id);
+			product.ImgPath = null;
+			await _context.SaveChangesAsync();
+		}
 	}
 }
