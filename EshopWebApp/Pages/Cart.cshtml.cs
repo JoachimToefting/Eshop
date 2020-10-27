@@ -22,27 +22,29 @@ namespace EshopWebApp.Pages
 		}
 		[BindProperty]
 		public List<ProductListCartDto> Products { get; set; }
+		public double TotalPrice { get; set; } 
 		public async Task<IActionResult> OnGetAsync()
 		{
-
 			string cart = Request.Cookies["Cart"];
 
 			if (cart == null)
 			{
 				return Page();
 			}
-
 			List<CartItem> cartRoot = JsonSerializer.Deserialize<List<CartItem>>(cart);
 			Products = new List<ProductListCartDto>();
 			foreach (var item in cartRoot)
 			{
-				var asd = await _listProductService.FindListByIdAsync(item.ProductID);
-				if (asd != null)
+				var productDto = await _listProductService.FindListByIdAsync(item.ProductID);
+				if (productDto != null)
 				{
-					ProductListCartDto product = new ProductListCartDto(asd, item.Count);
+					ProductListCartDto product = new ProductListCartDto(productDto, item.Count);
+					TotalPrice = TotalPrice + (productDto.Price * item.Count);
 					Products.Add(product);
 				}
 			}
+
+			
 
 			return Page();
 		}

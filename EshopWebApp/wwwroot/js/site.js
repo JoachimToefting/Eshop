@@ -24,13 +24,9 @@ function AddToCart(id) {
 
 
 	if (count != "") {
-		console.log("no");
 		if (getCookie("Cart") != null) {
-			console.log("stupid");
 			Cart = JSON.parse(decodeURIComponent(getCookie("Cart")));
 		}
-
-		console.log("nice 2");
 		Cart.push(
 			{
 				'ProductID': id,
@@ -38,8 +34,22 @@ function AddToCart(id) {
 			}
 		);
 		document.cookie = "Cart=" + encodeURIComponent(JSON.stringify(Cart)) + ";samesite=lax";
+		UpdateCartCount();
 		alert("You have added product to your cart");
 	}
+}
+function UpdateCartCount() {
+	var cartcountObject = document.getElementById("cartcount");
+	var cartcount = 0;
+	var Cart = []
+	if (getCookie("Cart") != null) {
+		Cart = JSON.parse(decodeURIComponent(getCookie("Cart")));
+	}
+	for (var i = 0; i < Cart.length; i++) {
+		cartcount = cartcount + Cart[i]["Count"];
+	}
+	cartcountObject.innerText = cartcount;
+	
 }
 
 //https://stackoverflow.com/questions/10730362/get-cookie-by-name
