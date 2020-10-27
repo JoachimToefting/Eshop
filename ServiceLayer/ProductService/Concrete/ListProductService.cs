@@ -47,7 +47,12 @@ namespace ServiceLayer.ProductService.Concrete
 		}
 		public async Task<ProductListDto> FindListByIdAsync(int id)
 		{
-			return (await _context.Products.FindAsync(id))?.MapProductListDtoSingle();
+			return (
+				await _context.Products
+				.AsNoTracking()
+				.Include(b => b.Brand)
+				.FirstOrDefaultAsync(p => p.ProductID == id)
+				)?.MapProductListDtoSingle();
 		}
 		public async Task UpdateAsync(ProductEditDto product)
 		{

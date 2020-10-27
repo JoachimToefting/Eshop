@@ -183,3 +183,6 @@ body {
 .form-check-label{
 	margin-right:1.5rem;
 }
+.buycount{
+	max-width:100px;
+}

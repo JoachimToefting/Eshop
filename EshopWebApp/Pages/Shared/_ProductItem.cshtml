@@ -33,10 +33,11 @@
 					</p>
 					@if (Model.Featured)
 					{
-						<span>This product is featured</span>
+						<p>This product is featured</p>
 					}
-					<input class="buycount" type="number" id="@countid" placeholder="amount"/>
-					<div class="buy" onclick="AddToCart(@Model.ProductID)">Add to Cart</div>
+					<input class="buycount form-control" type="number" id="@countid" placeholder="amount"/>
+					<div class="buy btn btn-primary" onclick="AddToCart(@Model.ProductID)">Add to Cart</div>
+					<a asp-page="/ProductPage" asp-route-id="@Model.ProductID" class="btn btn-primary">Go to product page</a>
 				</div>
 			</div>
 		</div>

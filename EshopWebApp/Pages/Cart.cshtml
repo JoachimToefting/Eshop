@@ -3,27 +3,41 @@
 @{
 	ViewData["Title"] = "Cart";
 }
+<div class="row">
+	<div class="col-4">
+		<b>Name:</b>
+	</div>
+	<div class="col-3">
+		<b>Brand:</b>
+	</div>
+	<div class="col-2">
+		<b>Price:</b>
+	</div>
+	<div class="col-1">
+		<b>Count:</b>
+	</div>
+	<div class="col-2">
+		<b></b>
+	</div>
+</div>
+<br />
+<form method="post">
+	@* Importen to use indexed list instead of enumerated list *@
+	@for (int i = 0; i < Model.Products.Count(); i++)
+	{
 
-@foreach (var item in Model.Products)
-{
-	<form>
-		<div class="productSmallBar">
+		<div class="productSmallBar" id="@Model.Products[i].Product.ProductID">
 			<div class="row">
-				<div class="col-1">
-					<div>
-						<div>@item.Product.ProductID</div>
-					</div>
-				</div>
 				<div class="col-4">
 					<div>
-						<div>@item.Product.Name</div>
+						<div>@Model.Products[i].Product.Name</div>
 					</div>
 				</div>
 				<div class="col-3">
 					<div>
 						<div>
-							@item.Product.BrandName
-							@if (item.Product.Featured)
+							@Model.Products[i].Product.BrandName
+							@if (Model.Products[i].Product.Featured)
 							{
 								<span>&nbsp;- Featured</span>
 							}
@@ -32,14 +46,20 @@
 				</div>
 				<div class="col-2">
 					<div>
-						<div>@item.Product.Price.ToString("C")</div>
+						<div>@Model.Products[i].Product.Price.ToString("C")</div>
 					</div>
 				</div>
 				<div class="col-1">
-					<input type="number" asp-for="@item.Count" />
+					<input type="hidden" asp-for="@Model.Products[i].Product.ProductID" />
+					<input type="number" asp-for="@Model.Products[i].Count" class="form-control" />
+				</div>
+				<div class="col-2">
+					<label asp-for="Products[i].MarkedforDeletion" class="form-check-label">Delete ListItem:</label>
+					@Html.CheckBoxFor(m => m.Products[i].MarkedforDeletion, new { @class = "form-check-input" })
 				</div>
 			</div>
 		</div>
-	</form>
-
-}
+		<hr />
+	}
+	<input type="submit" value="Update" class="btn btn-primary" />
+</form>

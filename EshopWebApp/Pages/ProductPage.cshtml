@@ -1,0 +1,6 @@
+﻿@page "{id:int}"
+@model EshopWebApp.Pages.ProductPageModel
+@{
+	ViewData["Title"] = Model.Product.Name;
+}
+@await Html.PartialAsync("_Product",Model.Product)

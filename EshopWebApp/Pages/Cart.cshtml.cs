@@ -20,7 +20,8 @@ namespace EshopWebApp.Pages
 		{
 			_listProductService = listProductService;
 		}
-		public List<ProductListCartDto> Products { get; set; } = new List<ProductListCartDto>();
+		[BindProperty]
+		public List<ProductListCartDto> Products { get; set; }
 		public async Task<IActionResult> OnGetAsync()
 		{
 
@@ -32,14 +33,39 @@ namespace EshopWebApp.Pages
 			}
 
 			List<CartItem> cartRoot = JsonSerializer.Deserialize<List<CartItem>>(cart);
-
+			Products = new List<ProductListCartDto>();
 			foreach (var item in cartRoot)
 			{
-				ProductListCartDto product = new ProductListCartDto(await _listProductService.FindListByIdAsync(item.ProductID), item.Count);
-				Products.Add(product);
+				var asd = await _listProductService.FindListByIdAsync(item.ProductID);
+				if (asd != null)
+				{
+					ProductListCartDto product = new ProductListCartDto(asd, item.Count);
+					Products.Add(product);
+				}
 			}
 
 			return Page();
+		}
+		public async Task<IActionResult> OnPostAsync()
+		{
+			List<CartItem> cartItems = new List<CartItem>();
+			foreach (var item in Products)
+			{
+				if (item.Count > 0 && !item.MarkedforDeletion)
+				{
+					cartItems.Add(new CartItem
+					{
+						Count = item.Count,
+						ProductID = item.Product.ProductID
+					});
+				}
+			}
+
+			string cartRootString = JsonSerializer.Serialize(cartItems);
+
+			Response.Cookies.Append("Cart", cartRootString);
+
+			return RedirectToPage();
 		}
 	}
 }
