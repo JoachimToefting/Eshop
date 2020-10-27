@@ -20,16 +20,26 @@ namespace EshopWebApp.Pages
 		{
 			_listProductService = listProductService;
 		}
-		public List<ProductListDto> Products { get; set; }
-		public void OnGet()
+		public List<ProductListCartDto> Products { get; set; } = new List<ProductListCartDto>();
+		public async Task<IActionResult> OnGetAsync()
 		{
-			string cart = HttpContext.Request.Cookies["Cart"];
-			if (cart != null)
+
+			string cart = Request.Cookies["Cart"];
+
+			if (cart == null)
 			{
-				 
+				return Page();
 			}
 
-			//JsonSerializer.Deserialize<CartItem>
+			List<CartItem> cartRoot = JsonSerializer.Deserialize<List<CartItem>>(cart);
+
+			foreach (var item in cartRoot)
+			{
+				ProductListCartDto product = new ProductListCartDto(await _listProductService.FindListByIdAsync(item.ProductID), item.Count);
+				Products.Add(product);
+			}
+
+			return Page();
 		}
 	}
 }

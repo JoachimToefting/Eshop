@@ -4,3 +4,42 @@
 	ViewData["Title"] = "Cart";
 }
 
+@foreach (var item in Model.Products)
+{
+	<form>
+		<div class="productSmallBar">
+			<div class="row">
+				<div class="col-1">
+					<div>
+						<div>@item.Product.ProductID</div>
+					</div>
+				</div>
+				<div class="col-4">
+					<div>
+						<div>@item.Product.Name</div>
+					</div>
+				</div>
+				<div class="col-3">
+					<div>
+						<div>
+							@item.Product.BrandName
+							@if (item.Product.Featured)
+							{
+								<span>&nbsp;- Featured</span>
+							}
+						</div>
+					</div>
+				</div>
+				<div class="col-2">
+					<div>
+						<div>@item.Product.Price.ToString("C")</div>
+					</div>
+				</div>
+				<div class="col-1">
+					<input type="number" asp-for="@item.Count" />
+				</div>
+			</div>
+		</div>
+	</form>
+
+}

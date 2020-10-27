@@ -27,19 +27,17 @@ function AddToCart(id) {
 		console.log("no");
 		if (getCookie("Cart") != null) {
 			console.log("stupid");
-			Cart = JSON.parse(getCookie("Cart"));
+			Cart = JSON.parse(decodeURIComponent(getCookie("Cart")));
 		}
 
 		console.log("nice 2");
 		Cart.push(
 			{
-				'CartItem': {
-					'ProductID': id,
-					'Count': count
-				}
+				'ProductID': id,
+				'Count': parseInt(count)
 			}
 		);
-		document.cookie = "Cart=" + JSON.stringify(Cart) + ";samesite=lax";
+		document.cookie = "Cart=" + encodeURIComponent(JSON.stringify(Cart)) + ";samesite=lax";
 		alert("You have added product to your cart");
 	}
 }
