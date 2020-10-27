@@ -54,8 +54,8 @@ Der skal installeres disse NuGet pakker til følgene projekter:
       -  [x] Featured
    -  [ ] User
       -  [ ] CRUD
-   -  [ ] Cart / Order
-      -  [ ] CRUD
+   -  [x] Cart (Cookie)
+      -  [x] CRUD
 -  [x] Filtrer
 -  [x] Sorter
 -  [x] Paging

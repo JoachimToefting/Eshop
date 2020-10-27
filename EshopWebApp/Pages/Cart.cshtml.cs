@@ -44,8 +44,6 @@ namespace EshopWebApp.Pages
 				}
 			}
 
-			
-
 			return Page();
 		}
 		public async Task<IActionResult> OnPostAsync()
