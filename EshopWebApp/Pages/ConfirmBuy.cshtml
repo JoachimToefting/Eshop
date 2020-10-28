@@ -1,7 +1,6 @@
 ﻿@page
-@model EshopWebApp.Pages.CartModel
+@model EshopWebApp.Pages.ConfirmBuyModel
 @{
-	ViewData["Title"] = "Cart";
 }
 <div class="row">
 	<div class="col-4">
@@ -51,19 +50,24 @@
 				</div>
 				<div class="col-1">
 					<input type="hidden" asp-for="@Model.Products[i].Product.ProductID" />
-					<input type="number" asp-for="@Model.Products[i].Count" class="form-control" />
+					<input type="hidden" asp-for="@Model.Products[i].Count" />
+					<div>
+						<div>@Model.Products[i].Count</div>
+					</div>
 				</div>
 				<div class="col-2">
-					<label asp-for="Products[i].MarkedforDeletion" class="form-check-label">Delete ListItem:</label>
-					@Html.CheckBoxFor(m => m.Products[i].MarkedforDeletion, new { @class = "form-check-input" })
+					@*<label asp-for="Products[i].MarkedforDeletion" class="form-check-label">Delete ListItem:</label>
+						@Html.CheckBoxFor(m => m.Products[i].MarkedforDeletion, new { @class = "form-check-input" })*@
 				</div>
 			</div>
 		</div>
 		<hr />
 	}
-	
+	<input type="hidden" asp-for="@Model.TotalPrice" />
 	<p>Total Price: @Model.TotalPrice.ToString("C")</p>
-	<input type="submit" value="Update" class="btn btn-primary" />
+	<label asp-for="firstname"></label>
+	<input asp-for="firstname" class="form-control" />
+	<label asp-for="lastname"></label>
+	<input asp-for="lastname" class="form-control" />
+	<input type="submit" value="Buy" class="btn btn-primary" />
 </form>
-<br />
-<a asp-page="/ConfirmBuy" class="btn btn-primary">Buy</a>

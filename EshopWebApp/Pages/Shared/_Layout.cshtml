@@ -28,12 +28,12 @@
 						</ul>
 					</div>
 				</div>
-				<a asp-area="" asp-page="/Cart">Cart</a>
-				<span id="cartcount"></span>
-				|
+				<a asp-area="" asp-page="/Cart" class="btn btn-primary">Cart <span id="cartcount"></span></a>
+				
+				&nbsp;|&nbsp;
 				<input type="checkbox" id="ThemeCheckbox" checked="@ViewData["themeCheck"]" onclick="Themechange()" />
-				|
-				<a asp-area="" asp-page="/Admin/AdminPanel">Admin</a>
+				&nbsp;|&nbsp;
+				<a asp-area="" asp-page="/Admin/AdminPanel" class="btn btn-danger">Admin</a>
 			</nav>
 		</header>
 		<div class="container">

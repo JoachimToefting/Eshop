@@ -7,10 +7,10 @@ function Themechange() {
 	var themecheckbox = document.getElementById("ThemeCheckbox");
 
 	if (themecheckbox.checked == true) {
-		document.cookie = "Theme=themeMode-black;samesite=lax";
+		document.cookie = "Theme=themeMode-black;samesite=lax;path=/";
 	}
 	else {
-		document.cookie = "Theme=themeMode-white;samesite=lax";
+		document.cookie = "Theme=themeMode-white;samesite=lax;path=/";
 	}
 
 	for (var i = 0; i < theme.length; i++) {
